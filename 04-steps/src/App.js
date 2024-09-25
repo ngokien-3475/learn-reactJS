@@ -6,7 +6,16 @@ const messages = [
   "Invest your new income 🤑",
 ];
 
-export default function App() {
+
+export default function App(){
+  return <div>
+    <Steps/>
+    <Steps/>
+  </div>
+}
+
+
+function Steps() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   // const [test, setTest] = useState({ name: "Jonas" });
@@ -15,7 +24,7 @@ export default function App() {
   // const step = 1;
 
   function handlePrevious() {
-    if (step > 1) setStep(step - 1);
+    if (step > 1) setStep((s) => s - 1);
 
     // alert("Preivious");
   }
@@ -23,7 +32,8 @@ export default function App() {
     // alert("Next");
     if (step < 3) {
       setStep((s) => s + 1);
-      setStep((s) => s + 1);
+       
+      // setStep((s) => s + 1);
     }
 
     // BAD PRACTICEC
@@ -31,8 +41,8 @@ export default function App() {
     // setTest({ name: "Fred" });
   }
   return (
-    <>
-      <button className="close" onClick={() => setIsOpen(!isOpen)}>
+    <div>
+      <button className="close" onClick={() => setIsOpen((is) =>  !is)}>
         &times;
       </button>
 
@@ -64,6 +74,6 @@ export default function App() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
